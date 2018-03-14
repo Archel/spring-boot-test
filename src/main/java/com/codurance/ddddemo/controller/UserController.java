@@ -2,9 +2,8 @@ package com.codurance.ddddemo.controller;
 
 import com.codurance.ddddemo.application.user.GetUserById;
 import com.codurance.ddddemo.infrastructure.user.UserDto;
-import com.codurance.ddddemo.user.GetUserByIdRequest;
-import com.codurance.ddddemo.user.User;
-import com.codurance.ddddemo.user.UserNotFoundException;
+import com.codurance.ddddemo.domain.user.GetUserByIdRequest;
+import com.codurance.ddddemo.domain.user.UserNotFoundException;
 import org.springframework.core.convert.ConversionService;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;

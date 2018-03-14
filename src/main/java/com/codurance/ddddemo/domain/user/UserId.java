@@ -1,4 +1,4 @@
-package com.codurance.ddddemo.user;
+package com.codurance.ddddemo.domain.user;
 
 import lombok.Value;
 

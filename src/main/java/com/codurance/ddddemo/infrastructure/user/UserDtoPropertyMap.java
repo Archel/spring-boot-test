@@ -1,6 +1,6 @@
 package com.codurance.ddddemo.infrastructure.user;
 
-import com.codurance.ddddemo.user.User;
+import com.codurance.ddddemo.domain.user.User;
 import org.modelmapper.PropertyMap;
 
 public class UserDtoPropertyMap extends PropertyMap<User, UserDto> {

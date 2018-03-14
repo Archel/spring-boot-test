@@ -1,6 +1,6 @@
 package com.codurance.ddddemo.infrastructure.user;
 
-import com.codurance.ddddemo.user.User;
+import com.codurance.ddddemo.domain.user.User;
 import org.modelmapper.ModelMapper;
 import org.springframework.core.convert.converter.Converter;
 

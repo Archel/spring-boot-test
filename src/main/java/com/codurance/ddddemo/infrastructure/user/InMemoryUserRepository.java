@@ -1,8 +1,8 @@
 package com.codurance.ddddemo.infrastructure.user;
 
-import com.codurance.ddddemo.user.User;
-import com.codurance.ddddemo.user.UserId;
-import com.codurance.ddddemo.user.UserRepository;
+import com.codurance.ddddemo.domain.user.User;
+import com.codurance.ddddemo.domain.user.UserId;
+import com.codurance.ddddemo.domain.user.UserRepository;
 
 public class InMemoryUserRepository implements UserRepository {
 
