@@ -1,5 +1,10 @@
 package com.codurance.ddddemo.user;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class User {
     private final UserId userId;
     private final String name;
