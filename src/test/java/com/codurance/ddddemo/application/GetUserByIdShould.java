@@ -17,7 +17,7 @@ public class GetUserByIdShould {
 
     @Test
     public void
-    get_a_user_by_id() {
+    get_a_user_by_id() throws UserNotFoundException {
         UserId userId = UserId.of("1921ef2c-d023-4a39-b01e-bba58b3e051b");
         GetUserById getUserById = new GetUserById(userRepository);
         User expectedUser = new User(userId, "John", "Doe");
@@ -27,5 +27,16 @@ public class GetUserByIdShould {
         User user = getUserById.get(getUserByIdRequest);
 
         assertThat(user, is(expectedUser));
+    }
+
+    @Test(expected = UserNotFoundException.class)
+    public void
+    throws_exception_if_the_user_is_not_found() throws UserNotFoundException {
+        UserId userId = UserId.of("1921ef2c-d023-4a39-b01e-bba58b3e051b");
+        GetUserById getUserById = new GetUserById(userRepository);
+        GetUserByIdRequest getUserByIdRequest = new GetUserByIdRequest("1921ef2c-d023-4a39-b01e-bba58b3e051b");
+        given(userRepository.ofId(userId)).willReturn(null);
+
+        getUserById.get(getUserByIdRequest);
     }
 }
