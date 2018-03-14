@@ -1,4 +1,6 @@
-package com.codurance.ddddemo.user;
+package com.codurance.ddddemo.application.user;
+
+import com.codurance.ddddemo.user.*;
 
 public class GetUserById {
     private UserRepository userRepository;
@@ -7,7 +9,7 @@ public class GetUserById {
         this.userRepository = userRepository;
     }
 
-    public User get(GetUserByIdRequest getUserByIdRequest) throws UserNotFoundException {
+    public User execute(GetUserByIdRequest getUserByIdRequest) throws UserNotFoundException {
         User user = userRepository.ofId(UserId.of(getUserByIdRequest.getUserId()));
 
         if (user == null) {
