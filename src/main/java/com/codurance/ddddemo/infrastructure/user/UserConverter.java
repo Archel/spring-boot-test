@@ -15,7 +15,7 @@ public class UserConverter implements Converter<User, UserDto> {
     @Override
     public UserDto convert(User user) {
         UserDto userDto = modelMapper.map(user, UserDto.class);
-        userDto.setUserId(user.getUserId().getUserId());
+        userDto.setUserId(user.getRawUserId());
 
         return userDto;
     }

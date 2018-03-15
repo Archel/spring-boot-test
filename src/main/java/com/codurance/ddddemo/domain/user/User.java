@@ -15,4 +15,8 @@ public class User {
         this.name = name;
         this.surname = surname;
     }
+
+    public String getRawUserId() {
+        return this.userId.getUserId();
+    }
 }

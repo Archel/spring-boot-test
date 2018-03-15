@@ -1,7 +1,6 @@
 package com.codurance.ddddemo.application.user;
 
 import com.codurance.ddddemo.domain.user.*;
-import com.codurance.ddddemo.user.*;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
