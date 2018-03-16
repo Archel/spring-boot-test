@@ -2,6 +2,8 @@ package com.codurance.ddddemo.application.user;
 
 import com.codurance.ddddemo.domain.user.*;
 
+import java.util.Optional;
+
 public class GetUserById {
     private UserRepository userRepository;
 
@@ -9,13 +11,9 @@ public class GetUserById {
         this.userRepository = userRepository;
     }
 
-    public User execute(GetUserByIdRequest getUserByIdRequest) throws UserNotFoundException {
-        User user = userRepository.ofId(UserId.of(getUserByIdRequest.getUserId()));
+    public User execute(GetUserByIdRequest getUserByIdRequest) {
+        Optional<User> user = userRepository.ofId(UserId.of(getUserByIdRequest.getUserId()));
 
-        if (user == null) {
-            throw new UserNotFoundException();
-        }
-
-        return user;
+        return user.orElseThrow(UserNotFoundException::new);
     }
 }

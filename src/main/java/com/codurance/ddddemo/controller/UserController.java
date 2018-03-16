@@ -22,7 +22,7 @@ public class UserController {
     }
 
     @RequestMapping(path = "/{userId}", method = RequestMethod.GET)
-    public UserDto getUserById(@PathVariable String userId) throws UserNotFoundException {
+    public UserDto getUserById(@PathVariable String userId) {
         GetUserByIdRequest getUserByIdRequest = new GetUserByIdRequest(userId);
 
         return this.conversionService.convert(getUserById.execute(getUserByIdRequest), UserDto.class);

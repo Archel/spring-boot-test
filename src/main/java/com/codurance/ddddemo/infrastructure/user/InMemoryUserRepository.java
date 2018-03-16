@@ -4,6 +4,8 @@ import com.codurance.ddddemo.domain.user.User;
 import com.codurance.ddddemo.domain.user.UserId;
 import com.codurance.ddddemo.domain.user.UserRepository;
 
+import java.util.Optional;
+
 public class InMemoryUserRepository implements UserRepository {
 
     private User user;
@@ -13,11 +15,11 @@ public class InMemoryUserRepository implements UserRepository {
     }
 
     @Override
-    public User ofId(UserId userId) {
+    public Optional<User> ofId(UserId userId) {
         if (userId.getUserId().equals("1921ef2c-d023-4a39-b01e-bba58b3e051b")) {
-            return user;
+            return Optional.of(user);
         }
 
-        return null;
+        return Optional.empty();
     }
 }

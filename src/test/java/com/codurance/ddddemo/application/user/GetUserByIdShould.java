@@ -7,6 +7,8 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
+import java.util.Optional;
+
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.mockito.BDDMockito.given;
@@ -35,7 +37,7 @@ public class GetUserByIdShould {
     get_a_user_by_id() throws UserNotFoundException {
         GetUserByIdRequest getUserByIdRequest = new GetUserByIdRequest(UUID);
         given(userRepository.ofId(USER_ID))
-                .willReturn(A_USER);
+                .willReturn(Optional.of(A_USER));
 
         User user = getUserById.execute(getUserByIdRequest);
 
@@ -47,7 +49,7 @@ public class GetUserByIdShould {
     throws_exception_if_the_user_is_not_found() throws UserNotFoundException {
         GetUserByIdRequest getUserByIdRequest = new GetUserByIdRequest(NOT_EXISTENT_UUID);
         given(userRepository.ofId(NOT_EXISTENT_USER_ID))
-                .willReturn(NOT_EXISTENT_USER);
+                .willReturn(Optional.ofNullable(NOT_EXISTENT_USER));
 
         getUserById.execute(getUserByIdRequest);
     }

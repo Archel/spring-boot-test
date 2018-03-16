@@ -1,5 +1,7 @@
 package com.codurance.ddddemo.domain.user;
 
+import java.util.Optional;
+
 public interface UserRepository {
-    User ofId(UserId userId);
+    Optional<User> ofId(UserId userId);
 }
