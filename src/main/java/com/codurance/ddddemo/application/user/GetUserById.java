@@ -1,7 +1,6 @@
 package com.codurance.ddddemo.application.user;
 
 import com.codurance.ddddemo.domain.user.*;
-import com.codurance.ddddemo.user.*;
 
 public class GetUserById {
     private UserRepository userRepository;
