@@ -21,7 +21,7 @@ public class GetUserByIdShould {
 
     private static final String NOT_EXISTENT_UUID = "9fcc9235-e1d3-42d0-9cd2-906fd6f2259c";
     private static final UserId NOT_EXISTENT_USER_ID = UserId.of(NOT_EXISTENT_UUID);
-    private static final User NOT_EXISTENT_USER = null;
+    private static final Optional<User> NOT_EXISTENT_USER = Optional.empty();
 
     @Mock
     private UserRepository userRepository;
@@ -49,7 +49,7 @@ public class GetUserByIdShould {
     throws_exception_if_the_user_is_not_found() throws UserNotFoundException {
         GetUserByIdRequest getUserByIdRequest = new GetUserByIdRequest(NOT_EXISTENT_UUID);
         given(userRepository.ofId(NOT_EXISTENT_USER_ID))
-                .willReturn(Optional.ofNullable(NOT_EXISTENT_USER));
+                .willReturn(NOT_EXISTENT_USER);
 
         getUserById.execute(getUserByIdRequest);
     }

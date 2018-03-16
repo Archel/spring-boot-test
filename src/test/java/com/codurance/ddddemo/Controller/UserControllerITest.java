@@ -1,5 +1,6 @@
 package com.codurance.ddddemo.Controller;
 
+import com.codurance.ddddemo.DddDemoApplication;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -11,8 +12,8 @@ import static com.codurance.ddddemo.helpers.RestAssuredHelpers.givenJsonApi;
 import static org.hamcrest.core.IsEqual.equalTo;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class UserControllerShould {
+@SpringBootTest(classes = {DddDemoApplication.class}, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+public class UserControllerITest {
     @LocalServerPort
     private int port;
 

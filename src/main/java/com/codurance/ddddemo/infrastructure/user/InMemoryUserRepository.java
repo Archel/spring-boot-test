@@ -16,7 +16,7 @@ public class InMemoryUserRepository implements UserRepository {
 
     @Override
     public Optional<User> ofId(UserId userId) {
-        if (userId.getUserId().equals("1921ef2c-d023-4a39-b01e-bba58b3e051b")) {
+        if (userId.getValue().equals("1921ef2c-d023-4a39-b01e-bba58b3e051b")) {
             return Optional.of(user);
         }
 
