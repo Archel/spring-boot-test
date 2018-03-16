@@ -31,6 +31,19 @@ public class UserControllerITest {
                 .body("surname", equalTo("Villuela"));
     }
 
+    @Test
+    public void
+    don_t_found_a_user_by_id() {
+        givenJsonApi(port)
+                .when()
+                .get("/users/adsfasdfa")
+                .then()
+                .statusCode(HttpStatus.NOT_FOUND.value())
+                .assertThat()
+                .body("message", equalTo("User not found with id: adsfasdfa"))
+                .body("errorId", equalTo("111-111-ad12"));
+    }
+
 }
 
 

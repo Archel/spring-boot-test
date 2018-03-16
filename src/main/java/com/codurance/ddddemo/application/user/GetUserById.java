@@ -14,6 +14,6 @@ public class GetUserById {
     public User execute(GetUserByIdRequest getUserByIdRequest) {
         Optional<User> user = userRepository.ofId(UserId.of(getUserByIdRequest.getUserId()));
 
-        return user.orElseThrow(UserNotFoundException::new);
+        return user.orElseThrow(() -> new UserNotFoundException(getUserByIdRequest));
     }
 }
